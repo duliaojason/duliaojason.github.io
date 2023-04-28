@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="liao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基于可视化地图定位生成动态旅行手帐立项背景 研究目的功能：简易制作旅行手帐自动生成旅行视频精准推荐用户所需分享社区，发现精彩通过地图可视化和数据库模型，自动生成包含用户旅行线路、图片、感想等信息的旅行视频，并针对用户数据精准推荐他人旅行线路；喜爱旅行热衷分享的我的切实需求利用百度地图的足迹×无法连点成线，画面凌乱（多亏照片拍的多）×若没有照片或导航，则线路缺失×名称、感想、线路全靠美图秀秀，格式字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双创实践">
+<meta property="og:url" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:site_name" content="liao">
+<meta property="og:description" content="基于可视化地图定位生成动态旅行手帐立项背景 研究目的功能：简易制作旅行手帐自动生成旅行视频精准推荐用户所需分享社区，发现精彩通过地图可视化和数据库模型，自动生成包含用户旅行线路、图片、感想等信息的旅行视频，并针对用户数据精准推荐他人旅行线路；喜爱旅行热衷分享的我的切实需求利用百度地图的足迹×无法连点成线，画面凌乱（多亏照片拍的多）×若没有照片或导航，则线路缺失×名称、感想、线路全靠美图秀秀，格式字">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/1.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/2.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/3.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/4.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/5.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/6.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/7.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/8.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/9.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/10.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/11.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/12.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/13.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/14.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/15.png">
+<meta property="article:published_time" content="2023-02-25T05:01:07.000Z">
+<meta property="article:modified_time" content="2023-02-28T11:44:29.665Z">
+<meta property="article:author" content="liao">
+<meta property="article:tag" content="实践">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/1.png">
+  
+  
+  
+  <title>双创实践 - liao</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"DdeAMC6dl9fUQgVnpVtG2NtC-gzGzoHsz","app_key":"bRL8DRWTVQ0Xtb2m9raN4GRp","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jason&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="双创实践"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-25 13:01" pubdate>
+          February 25, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">双创实践</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="基于可视化地图定位生成动态旅行手帐"><a href="#基于可视化地图定位生成动态旅行手帐" class="headerlink" title="基于可视化地图定位生成动态旅行手帐"></a>基于可视化地图定位生成动态旅行手帐</h2><h3 id="立项背景"><a href="#立项背景" class="headerlink" title="立项背景"></a>立项背景</h3><ul>
+<li><h4 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h4><h5 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h5><h5 id="简易制作旅行手帐"><a href="#简易制作旅行手帐" class="headerlink" title="简易制作旅行手帐"></a>简易制作<strong>旅行手帐</strong></h5><h5 id="自动生成旅行视频"><a href="#自动生成旅行视频" class="headerlink" title="自动生成旅行视频"></a>自动生成<strong>旅行视频</strong></h5><h5 id="精准推荐用户所需"><a href="#精准推荐用户所需" class="headerlink" title="精准推荐用户所需"></a><strong>精准推荐</strong>用户所需</h5><h5 id="分享社区，发现精彩"><a href="#分享社区，发现精彩" class="headerlink" title="分享社区，发现精彩"></a><strong>分享社区</strong>，发现精彩</h5><h5 id="通过地图可视化和数据库模型，自动生成包含用户旅行线路、图片、感想等信息的旅行视频，并针对用户数据精准推荐他人旅行线路；"><a href="#通过地图可视化和数据库模型，自动生成包含用户旅行线路、图片、感想等信息的旅行视频，并针对用户数据精准推荐他人旅行线路；" class="headerlink" title="通过地图可视化和数据库模型，自动生成包含用户旅行线路、图片、感想等信息的旅行视频，并针对用户数据精准推荐他人旅行线路；"></a>通过<strong>地图</strong>可视化和数据库模型，自动生成包含用户旅行线路、图片、感想等信息的旅行<strong>视频</strong>，并针对用户数据精准<strong>推荐</strong>他人旅行线路；</h5><h4 id="喜爱旅行热衷分享的我的切实需求"><a href="#喜爱旅行热衷分享的我的切实需求" class="headerlink" title="喜爱旅行热衷分享的我的切实需求"></a><strong>喜爱旅行热衷分享的我的切实需求</strong></h4><h5 id="利用百度地图的足迹"><a href="#利用百度地图的足迹" class="headerlink" title="利用百度地图的足迹"></a>利用百度地图的足迹</h5><h5 id="×无法连点成线，画面凌乱（多亏照片拍的多）"><a href="#×无法连点成线，画面凌乱（多亏照片拍的多）" class="headerlink" title="×无法连点成线，画面凌乱（多亏照片拍的多）"></a>×无法连点成线，画面<strong>凌乱</strong>（多亏照片拍的多）</h5><h5 id="×若没有照片或导航，则线路缺失"><a href="#×若没有照片或导航，则线路缺失" class="headerlink" title="×若没有照片或导航，则线路缺失"></a>×若没有照片或导航，则<strong>线路缺失</strong></h5><h5 id="×名称、感想、线路全靠美图秀秀，格式字体不一且制作费时费力"><a href="#×名称、感想、线路全靠美图秀秀，格式字体不一且制作费时费力" class="headerlink" title="×名称、感想、线路全靠美图秀秀，格式字体不一且制作费时费力"></a>×名称、感想、线路全靠美图秀秀，<strong>格式字体不一</strong>且<strong>制作费时费力</strong></h5><h5 id="×刷屏式的朋友圈内容零散"><a href="#×刷屏式的朋友圈内容零散" class="headerlink" title="×刷屏式的朋友圈内容零散"></a>×刷屏式的朋友圈<strong>内容零散</strong></h5><h5 id="旅行后一直想做Vlog给关注我们行程的亲戚长辈，奈何制作流程复杂，不知如何导入地图，无从下手，最终也不了了之……"><a href="#旅行后一直想做Vlog给关注我们行程的亲戚长辈，奈何制作流程复杂，不知如何导入地图，无从下手，最终也不了了之……" class="headerlink" title="旅行后一直想做Vlog给关注我们行程的亲戚长辈，奈何制作流程复杂，不知如何导入地图，无从下手，最终也不了了之……"></a>旅行后一直想做Vlog给关注我们行程的亲戚长辈，奈何制作流程复杂，不知如何导入地图，无从下手，最终也不了了之……</h5></li>
+</ul>
+<img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/1.png" srcset="/img/loading.gif" lazyload class="">
+
+
+
+<ul>
+<li><h4 id="国内外研究现状即分析"><a href="#国内外研究现状即分析" class="headerlink" title="国内外研究现状即分析"></a>国内外研究现状即分析</h4><h4 id="–国内《足迹-自动记录-生轨迹和旅行地图》"><a href="#–国内《足迹-自动记录-生轨迹和旅行地图》" class="headerlink" title="–国内《足迹-自动记录-生轨迹和旅行地图》"></a>–国内《足迹-自动记录-生轨迹和旅行地图》</h4><h5 id="√实时定位"><a href="#√实时定位" class="headerlink" title="√实时定位"></a>√实时定位</h5><h5 id="√统计用户步数、里程、时速、海拔信息"><a href="#√统计用户步数、里程、时速、海拔信息" class="headerlink" title="√统计用户步数、里程、时速、海拔信息"></a>√统计用户步数、里程、时速、海拔信息</h5><h5 id="×不可用户自定义，不可导入图片和感想，分享价值差"><a href="#×不可用户自定义，不可导入图片和感想，分享价值差" class="headerlink" title="×不可用户自定义，不可导入图片和感想，分享价值差"></a>×不可用户自定义，不可导入图片和感想，<strong>分享价值差</strong></h5><h5 id="×两点间直线连接，画面观赏性差"><a href="#×两点间直线连接，画面观赏性差" class="headerlink" title="×两点间直线连接，画面观赏性差"></a>×两点间直线连接，画面<strong>观赏性差</strong></h5><h5 id="×要求后台常驻并提供精确位置，易侵犯隐私"><a href="#×要求后台常驻并提供精确位置，易侵犯隐私" class="headerlink" title="×要求后台常驻并提供精确位置，易侵犯隐私"></a>×要求后台常驻并提供精确位置，易侵犯隐私</h5><h5 id="×ios独享"><a href="#×ios独享" class="headerlink" title="×ios独享"></a>×<strong>ios独享</strong></h5><h5 id="√硬性记录-×旅程分享"><a href="#√硬性记录-×旅程分享" class="headerlink" title="√硬性记录 ×旅程分享"></a>√硬性记录 ×旅程分享</h5><h4 id="–国外《travel-boast》"><a href="#–国外《travel-boast》" class="headerlink" title="–国外《travel boast》"></a><strong>–<strong>国外《</strong>travel boast</strong>》</h4><h5 id="√卡通形象选择"><a href="#√卡通形象选择" class="headerlink" title="√卡通形象选择"></a>√卡通形象选择</h5><h5 id="√设置视频长度"><a href="#√设置视频长度" class="headerlink" title="√设置视频长度"></a>√设置视频长度</h5><h5 id="×图标绝大多数需要付费，用户选择余地小"><a href="#×图标绝大多数需要付费，用户选择余地小" class="headerlink" title="×图标绝大多数需要付费，用户选择余地小"></a>×图标绝大多数需要<strong>付费</strong>，用户选择余地小</h5><h5 id="×所有标签、内容和地点信息都需要用户手动输入和设置，用户操作费时费力"><a href="#×所有标签、内容和地点信息都需要用户手动输入和设置，用户操作费时费力" class="headerlink" title="×所有标签、内容和地点信息都需要用户手动输入和设置，用户操作费时费力"></a>×所有标签、内容和地点信息都需要用户<strong>手动输入和设置</strong>，用户操作费时费力</h5><h5 id="×两点间直线或曲线，不能体现具体路线信息"><a href="#×两点间直线或曲线，不能体现具体路线信息" class="headerlink" title="×两点间直线或曲线，不能体现具体路线信息"></a>×两点间<strong>直线或曲线</strong>，不能体现具体路线信息</h5><h5 id="×ios独享-1"><a href="#×ios独享-1" class="headerlink" title="×ios独享"></a>×ios独享</h5><h5 id="√生动有趣-×制作繁琐，格式单一"><a href="#√生动有趣-×制作繁琐，格式单一" class="headerlink" title="√生动有趣  ×制作繁琐，格式单一"></a>√生动有趣  ×制作繁琐，格式单一</h5><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/2.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/3.png" srcset="/img/loading.gif" lazyload class="">
+
+
+
+<h4 id="旅行类软件–信息收发平台"><a href="#旅行类软件–信息收发平台" class="headerlink" title="旅行类软件–信息收发平台"></a><strong>旅行类软件</strong>–信息收发平台</h4><h5 id="给用户提供大量旅行中所需的信息"><a href="#给用户提供大量旅行中所需的信息" class="headerlink" title="给用户提供大量旅行中所需的信息"></a>给用户提供大量旅行中所需的信息</h5><h5 id="帮助用户拥有更多的选择"><a href="#帮助用户拥有更多的选择" class="headerlink" title="帮助用户拥有更多的选择"></a>帮助用户拥有更多的选择</h5><h5 id="获得更舒适的体验"><a href="#获得更舒适的体验" class="headerlink" title="获得更舒适的体验"></a>获得更舒适的体验</h5><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/4.png" srcset="/img/loading.gif" lazyload class="">
+
+
+
+<h4 id="旅行类软件–行程定制平台"><a href="#旅行类软件–行程定制平台" class="headerlink" title="旅行类软件–行程定制平台"></a><strong>旅行类软件</strong>–<strong>行程定制平台</strong></h4><h5 id="结合所需、安排行程"><a href="#结合所需、安排行程" class="headerlink" title="结合所需、安排行程"></a>结合所需、安排行程</h5><h5 id="赢利点：私人订制"><a href="#赢利点：私人订制" class="headerlink" title="赢利点：私人订制"></a>赢利点：私人订制</h5><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/5.png" srcset="/img/loading.gif" lazyload class="">
+
+<img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/6.png" srcset="/img/loading.gif" lazyload class="">
+
+
+
+<h4 id="而我们"><a href="#而我们" class="headerlink" title="而我们"></a><strong>而我们</strong></h4><h5 id="大多数程序注重用户旅行前的信息收集、行程规划"><a href="#大多数程序注重用户旅行前的信息收集、行程规划" class="headerlink" title="大多数程序注重用户旅行前的信息收集、行程规划"></a>大多数程序注重用户旅行前的信息收集、行程规划</h5><h5 id="我们注重用户旅行途中和旅行过后独有的心路历程，帮助用户将快乐串起来"><a href="#我们注重用户旅行途中和旅行过后独有的心路历程，帮助用户将快乐串起来" class="headerlink" title="我们注重用户旅行途中和旅行过后独有的心路历程，帮助用户将快乐串起来"></a>我们注重<strong>用户旅行途中和旅行过后独有的心路历程，帮助用户将快乐串起来</strong></h5><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/7.png" srcset="/img/loading.gif" lazyload class="">
+
+
+
+</li>
+<li><h4 id="研究意义"><a href="#研究意义" class="headerlink" title="研究意义"></a>研究意义</h4><h5 id="本项目为广大的旅游爱好者提供一个具有实用性、便捷性、协同性、智能性、娱乐性与社交性的多功能旅行手账自动生成小程序，让旅游体验分享更加便捷，让旅友间更易产生连接。"><a href="#本项目为广大的旅游爱好者提供一个具有实用性、便捷性、协同性、智能性、娱乐性与社交性的多功能旅行手账自动生成小程序，让旅游体验分享更加便捷，让旅友间更易产生连接。" class="headerlink" title="本项目为广大的旅游爱好者提供一个具有实用性、便捷性、协同性、智能性、娱乐性与社交性的多功能旅行手账自动生成小程序，让旅游体验分享更加便捷，让旅友间更易产生连接。"></a>本项目为广大的旅游爱好者提供一个具有实用性、便捷性、协同性、智能性、娱乐性与社交性的<strong>多功能旅行手账自动生成小程序</strong>，让旅游体验分享更加便捷，让旅友间更易产生连接。</h5><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/8.png" srcset="/img/loading.gif" lazyload class=""></li>
+</ul>
+<h3 id="研究内容和方法"><a href="#研究内容和方法" class="headerlink" title="研究内容和方法"></a>研究内容和方法</h3><ul>
+<li><h4 id="研究内容"><a href="#研究内容" class="headerlink" title="研究内容"></a>研究内容</h4><h5 id="呈现可视化旅行轨迹（根据不同的交通方式、旅行途中人物等）"><a href="#呈现可视化旅行轨迹（根据不同的交通方式、旅行途中人物等）" class="headerlink" title="呈现可视化旅行轨迹（根据不同的交通方式、旅行途中人物等）"></a>呈现可视化旅行<strong>轨迹</strong>（根据不同的交通方式、旅行途中人物等）</h5><h5 id="利用图片携带的信息，在地图中精准定位（错误信息修正，缺失信息补全）"><a href="#利用图片携带的信息，在地图中精准定位（错误信息修正，缺失信息补全）" class="headerlink" title="利用图片携带的信息，在地图中精准定位（错误信息修正，缺失信息补全）"></a>利用图片携带的信息，在地图中<strong>精准定位</strong>（错误信息修正，缺失信息补全）</h5><h5 id="多人协同在线编辑"><a href="#多人协同在线编辑" class="headerlink" title="多人协同在线编辑"></a>多人<strong>协同</strong>在线编辑</h5><h5 id="解决类似软件盈利点少、程序不稳定、功能残缺不全，缺乏本土化定制等问题"><a href="#解决类似软件盈利点少、程序不稳定、功能残缺不全，缺乏本土化定制等问题" class="headerlink" title="解决类似软件盈利点少、程序不稳定、功能残缺不全，缺乏本土化定制等问题"></a>解决类似软件盈利点少、程序不稳定、功能残缺不全，缺乏本土化定制等问题</h5><h5 id="实现基于小程序的用户分享、推荐、转发、好友社交等功能"><a href="#实现基于小程序的用户分享、推荐、转发、好友社交等功能" class="headerlink" title="实现基于小程序的用户分享、推荐、转发、好友社交等功能"></a>实现基于小程序的用户分享、推荐、转发、好友社交等功能</h5></li>
+<li><h4 id="拟解决的关键问题"><a href="#拟解决的关键问题" class="headerlink" title="拟解决的关键问题"></a>拟解决的关键问题</h4><h5 id="图片Exif信息补全和修正"><a href="#图片Exif信息补全和修正" class="headerlink" title="图片Exif信息补全和修正"></a>图片Exif信息补全和修正</h5><h5 id="−针对二次制作的图片，在本地图片中查找完整时间、经纬度等信息"><a href="#−针对二次制作的图片，在本地图片中查找完整时间、经纬度等信息" class="headerlink" title="−针对二次制作的图片，在本地图片中查找完整时间、经纬度等信息"></a>−针对二次制作的图片，在本地图片中查找完整时间、经纬度等信息</h5><h5 id="以动画为载体的可视化旅游路线"><a href="#以动画为载体的可视化旅游路线" class="headerlink" title="以动画为载体的可视化旅游路线"></a>以动画为载体的可视化旅游路线</h5><h5 id="−将用户提供的素材嵌入到多种视频模型、动画效果中，得到专属视频"><a href="#−将用户提供的素材嵌入到多种视频模型、动画效果中，得到专属视频" class="headerlink" title="−将用户提供的素材嵌入到多种视频模型、动画效果中，得到专属视频"></a>−将用户提供的素材嵌入到多种视频模型、动画效果中，得到专属视频</h5><h5 id="协同编辑时信息同步问题"><a href="#协同编辑时信息同步问题" class="headerlink" title="协同编辑时信息同步问题"></a>协同编辑时信息同步问题</h5><h5 id="−提供统一机制解决用户使用先后次序、信息同步、编辑冲突等问题"><a href="#−提供统一机制解决用户使用先后次序、信息同步、编辑冲突等问题" class="headerlink" title="−提供统一机制解决用户使用先后次序、信息同步、编辑冲突等问题"></a>−提供统一机制解决用户使用先后次序、信息同步、编辑冲突等问题</h5><h5 id="对用户数据进行分析，合理建模，以实现精准推荐"><a href="#对用户数据进行分析，合理建模，以实现精准推荐" class="headerlink" title="对用户数据进行分析，合理建模，以实现精准推荐"></a>对用户数据进行分析，合理建模，以实现精准推荐</h5><h5 id="−根据用户标签、图片中的人物、线路要素等信息建立关系网，扩充用户朋友圈，增强用户粘黏性"><a href="#−根据用户标签、图片中的人物、线路要素等信息建立关系网，扩充用户朋友圈，增强用户粘黏性" class="headerlink" title="−根据用户标签、图片中的人物、线路要素等信息建立关系网，扩充用户朋友圈，增强用户粘黏性"></a>−根据用户标签、图片中的人物、线路要素等信息建立关系网，扩充用户朋友圈，增强用户粘黏性</h5></li>
+<li><h4 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h4><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/9.png" srcset="/img/loading.gif" lazyload class=""></li>
+</ul>
+<h3 id="项目特色与创新点"><a href="#项目特色与创新点" class="headerlink" title="项目特色与创新点"></a>项目特色与创新点</h3><h5 id="创新点：国内第一个同时具有实用性、便捷性、协同性、智能性、娱乐性与社交性的多功能旅行手账自动生成小程序"><a href="#创新点：国内第一个同时具有实用性、便捷性、协同性、智能性、娱乐性与社交性的多功能旅行手账自动生成小程序" class="headerlink" title="创新点：国内第一个同时具有实用性、便捷性、协同性、智能性、娱乐性与社交性的多功能旅行手账自动生成小程序"></a>创新点：国内第一个同时具有实用性、便捷性、协同性、智能性、娱乐性与社交性的多功能旅行手账自动生成小程序</h5><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/10.png" srcset="/img/loading.gif" lazyload class="">
+
+
+
+<h3 id="项目成果"><a href="#项目成果" class="headerlink" title="项目成果"></a>项目成果</h3><img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/11.png" srcset="/img/loading.gif" lazyload class="">
+
+
+<img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/12.png" srcset="/img/loading.gif" lazyload class="">
+
+
+<img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/13.png" srcset="/img/loading.gif" lazyload class="">
+
+
+<img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/14.png" srcset="/img/loading.gif" lazyload class="">
+
+
+<img src="/2023/02/25/%E5%8F%8C%E5%88%9B%E5%AE%9E%E8%B7%B5/15.png" srcset="/img/loading.gif" lazyload class="">
+
+
+
+<h3 id="项目源代码"><a href="#项目源代码" class="headerlink" title="项目源代码"></a>项目源代码</h3><h5 id="https-github-com-duliaojason-Travel-handbook"><a href="#https-github-com-duliaojason-Travel-handbook" class="headerlink" title="https://github.com/duliaojason/Travel-handbook"></a><a target="_blank" rel="noopener" href="https://github.com/duliaojason/Travel-handbook">https://github.com/duliaojason/Travel-handbook</a></h5>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AE%9E%E8%B7%B5/">#实践</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>双创实践</div>
+      <div>http://example.com/2023/02/25/双创实践/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>liao</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>February 25, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/28/CloudComputing/" title="CloudComputing">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CloudComputing</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/24/first/" title="first">
+                        <span class="hidden-mobile">first</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"DdeAMC6dl9fUQgVnpVtG2NtC-gzGzoHsz","appKey":"bRL8DRWTVQ0Xtb2m9raN4GRp","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        Views: 
+        <span id="leancloud-site-pv"></span>
+        
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        Visitors: 
+        <span id="leancloud-site-uv"></span>
+        
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
